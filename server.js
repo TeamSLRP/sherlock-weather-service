@@ -1,5 +1,6 @@
 const express = require('express');
 const hbs = require('hbs');
+var session = require('client-sessions');
 // const dr = require('./jsLogic/dataRetriever');
 // const geoCode = require('./jsLogic/geoCode');
 // const weather = require('./jsLogic/weather');
@@ -21,6 +22,13 @@ const {MongoClient,ObjectID} = require('mongodb');
 var app = express();
 
 app.use(bodyParser());
+
+app.use(session({
+  cookieName: 'session',
+  secret: 'ajcnu876246fbd$E^%$&^hvuyyfu&%$&%$&$&^ggcq',
+  duration: 30 * 60 * 1000,
+  activeDuration: 5 * 60 * 1000,
+}));
 
 app.set('view engine','hbs');
 
@@ -55,22 +63,26 @@ var t;
 
 app.get('/',(req,res) => {
   address = undefined;
+  req.session.reset();
   res.render('home.hbs');
 });
 
 app.post('/',(req,res) => {
   address = undefined;
+  req.session.reset();
   res.render('home.hbs');
 });
 
 
 app.post('/mainPage',(req,res) => {
-  WR.getCompleteData(address || req.body.address , (error,results) => {
+  WR.getCompleteData(req.session.address || req.body.address , (error,results) => {
     if(error){
       res.render('error.hbs',{
         message: error
       });
     } else {
+
+      req.session.address = results.address;
 
       address = results.address;
       date = new Date();
@@ -97,6 +109,35 @@ app.post('/mainPage',(req,res) => {
       p = results.p;
       so2 = results.so2;
       t = results.t;
+
+      req.session.obj = {
+        name: name,
+        description: description,
+        latitude: latitude,
+        longitude: longitude,
+        temperature: temperature,
+        summary: summary,
+        completeAddress: completeAddress,
+        imageUrl: imageUrl,
+        nearestStorm: nearestStorm,
+        windSpeed: windSpeed,
+        humidity: humidity,
+        pressure: pressure,
+        visibility: visibility,
+        ozone: ozone,
+        cloud: cloud,
+        aqi : aqi,
+        idx : idx,
+        attname :attname,
+        co : co,
+        h : h,
+        no2 : no2,
+        o3 : o3,
+        p : p,
+        so2 : so2,
+        t : t,
+        date: date
+      };
 
       res.render('mainPage.hbs',{
         latitude: results.latitude,
@@ -131,13 +172,13 @@ app.post('/mainPage',(req,res) => {
 
 app.post('/database',(req,res)=>{
   res.render('database.hbs',{
-    completeAddress : address
+    completeAddress : req.session.address || address
   });
 });
 
 app.get('/database',(req,res)=>{
   res.render('database.hbs',{
-    completeAddress : address
+    completeAddress : req.session.address || address
   });
 });
 
@@ -146,35 +187,10 @@ app.post('/insertDatabase',(req,res) => {
   name = req.body.name;
   description = req.body.desc;
 
+    req.session.obj.name = name;
+    req.session.obj.description = description;
 
-  dbEntry = new weatherData({
-    name: name,
-    description: description,
-    latitude: latitude,
-    longitude: longitude,
-    temperature: temperature,
-    summary: summary,
-    completeAddress: completeAddress,
-    imageUrl: imageUrl,
-    nearestStorm: nearestStorm,
-    windSpeed: windSpeed,
-    humidity: humidity,
-    pressure: pressure,
-    visibility: visibility,
-    ozone: ozone,
-    cloud: cloud,
-    aqi : aqi,
-    idx : idx,
-    attname :attname,
-    co : co,
-    h : h,
-    no2 : no2,
-    o3 : o3,
-    p : p,
-    so2 : so2,
-    t : t,
-    date: date
-  });
+  dbEntry = new weatherData(req.session.obj);
   dbEntry.save().then((doc)=>{
     res.render('final.hbs',{
       message: 'Entry is successfully saved.'
