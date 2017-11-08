@@ -69,6 +69,9 @@ var getCompleteData = (address,callback) => {
             if(bodyWW.data.iaqi.t){
              resultObject.t = bodyWW.data.iaqi.t.v;
            }
+           if(bodyWW.data.attributions[0]){
+            resultObject.attname= bodyWW.data.attributions[0].name;
+          }
            resultObject.longitude= body.results[0].geometry.location.lng;
            resultObject.latitude= body.results[0].geometry.location.lat;
            resultObject.address= body.results[0].formatted_address;
@@ -85,7 +88,7 @@ var getCompleteData = (address,callback) => {
            resultObject.ozone= bodyW.currently.ozone;
            resultObject.aqi= bodyWW.data.aqi ;
            resultObject.idx= bodyWW.data.idx ;
-           resultObject.attname= bodyWW.data.attributions[0].name;
+           
 
            callback(undefined,resultObject);
 

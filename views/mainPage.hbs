@@ -71,6 +71,9 @@
      if(document.getElementById("T").innerHTML == "%"){
        document.getElementById("T").innerHTML = "not provided";
      }
+     if(document.getElementById("att").innerHTML == ""){
+       document.getElementById("att").innerHTML = "not provided";
+     }
 
 
    }
@@ -259,7 +262,7 @@
 
     <tr>
      <td><h3>Attribution name</h3></td>
-     <td><h4>{{attname}}</h4></td>
+     <td><h4 id="att">{{attname}}</h4></td>
     </tr>
     <tr>
      <td id = "high"><h3>aqi (Air Quality Index)</h3></td>
