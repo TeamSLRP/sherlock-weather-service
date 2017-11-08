@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Air quality</title>
+    <style>
+    body {
+      color: white;
+      background-image: url('http://www.deteched.com/wp-content/uploads/2017/04/VMHZj3.jpg');
+      background-size: 1366px 768px;
+      background-repeat: repeat;
+      background-attachment: fixed;
+      margin:50px 0px; padding:0px;
+      text-align:center;
+      align:center;
+    }
+    table#content {
+      border: 4px solid #00FFAA;
+      width: 75%;
+      background: #FFFFE0;
+      color: green;
+    }
+    table#mustsee {
+      border: 4px solid black;
+      width: 75%;
+    }
+    td {
+      border: 2px solid black;
+    }
+    td#high {
+      background-color: #F0F8FF;
+      color: red;
+    }
+    input#go {
+      position: fixed;
+      width:90px;
+      height:90px;
+      bottom:20px;
+      right:20px;
+      background-color:#0C9;
+      color:#FFF;
+      border-radius:50px;
+      text-align:center;
+      box-shadow: 2px 2px 3px #999;
+      font-style: verdana;
+      font-size: 20px;
+    }
+
+    </style>
+
+    <script>
+    function quality(){
+      if ({{aqi}} <= 50){
+       document.getElementById("level").innerHTML = "Good";
+       document.getElementById("health").innerHTML = "Air quality is considered satisfactory, and air pollution poses little or no risk";
+       document.getElementById("caution").innerHTML = "None";
+       document.getElementById("mustsee").style.backgroundColor = "Forestgreen";
+       document.getElementById("mustsee").style.color = "white";
+     }else if({{aqi}} >= 51 && {{aqi}} <= 100){
+       document.getElementById("level").innerHTML = "Moderate";
+       document.getElementById("health").innerHTML = "Air quality is acceptable; however, for some pollutants there may be a moderate health concern for a very small number of people who are unusually sensitive to air pollution.";
+       document.getElementById("caution").innerHTML = "Active children and adults, and people with respiratory disease, such as asthma, should limit prolonged outdoor exertion.";
+       document.getElementById("mustsee").style.backgroundColor = "Gold";
+       document.getElementById("mustsee").style.color = "black";
+     }else if( {{aqi}} >= 101 && {{aqi}} <= 150){
+       document.getElementById("level").innerHTML = "Unhealthy for Sensitive Groups";
+       document.getElementById("health").innerHTML = "Members of sensitive groups may experience health effects. The general public is not likely to be affected.";
+       document.getElementById("caution").innerHTML = "Active children and adults, and people with respiratory disease, such as asthma, should limit prolonged outdoor exertion.";
+       document.getElementById("mustsee").style.backgroundColor = "GoldenRod";
+       document.getElementById("mustsee").style.color = "black";
+     }else if( {{aqi}} >= 151 && {{aqi}} <= 200){
+       document.getElementById("level").innerHTML = "Unhealthy";
+       document.getElementById("health").innerHTML = "Everyone may begin to experience health effects; members of sensitive groups may experience more serious health effects";
+       document.getElementById("caution").innerHTML = "Active children and adults, and people with respiratory disease, such as asthma, should avoid prolonged outdoor exertion; everyone else, especially children, should limit prolonged outdoor exertion.";
+       document.getElementById("mustsee").style.backgroundColor = "Crimson";
+       document.getElementById("mustsee").style.color = "white";
+     }else if( {{aqi}} >= 201 && {{aqi}} <= 300){
+       document.getElementById("level").innerHTML = "Very Unhealthy";
+       document.getElementById("health").innerHTML = "Health warnings of emergency conditions. The entire population is more likely to be affected.";
+       document.getElementById("caution").innerHTML = "Active children and adults, and people with respiratory disease, such as asthma, should avoid all outdoor exertion; everyone else, especially children, should limit outdoor exertion.";
+       document.getElementById("mustsee").style.backgroundColor = "DarkViolet";
+       document.getElementById("mustsee").style.color = "white";
+     }else if( {{aqi}} > 300){
+       document.getElementById("level").innerHTML = "Hazardous";
+       document.getElementById("health").innerHTML = "Health alert: everyone may experience more serious health effects";
+       document.getElementById("caution").innerHTML = "Everyone should avoid all outdoor exertion";
+       document.getElementById("mustsee").style.backgroundColor = "Maroon";
+       document.getElementById("mustsee").style.color = "white";
+     }
+   }
+    </script>
+  </head>
+  <body onload = "quality()">
+
+  <table align = "center" id = "content">
+     <tr>
+      <td><h3>Attribution name</h3></td>
+      <td><h4>{{attname}}</h4></td>
+     </tr>
+     <tr>
+      <td id = "high"><h3>aqi (Air Quality Index)</h3></td>
+      <td id = "high"><h4>{{aqi}}</h4></td>
+     </tr>
+     <tr>
+      <td><h3>idx</h3></td>
+      <td><h4>{{idx}}</h4></td>
+     </tr>
+     <tr>
+      <td><h3>co (Carbon Mono Oxide)</h3></td>
+      <td><h4>{{co}}%</h4></td>
+     </tr>
+     <tr>
+      <td><h3>h (Hydrogen)</h3></td>
+      <td><h4>{{h}}%</h4></td>
+     </tr>
+     <tr>
+      <td><h3>no2 (Nitrigen Di-oxide)</h3></td>
+      <td><h4>{{no2}}%</h4></td>
+     </tr>
+     <tr>
+      <td><h3>o3 (Ozone)</h3></td>
+      <td><h4>{{o3}}%</h4></td>
+     </tr>
+     <tr>
+      <td><h3>p (Phosphorous)</h3></td>
+      <td><h4>{{p}}%</h4></td>
+     </tr>
+     <tr>
+      <td><h3>so2 (Sulpher Di-oxide)</h3></td>
+      <td><h4>{{so2}}%</h4></td>
+     </tr>
+     <tr>
+      <td><h3>t (Tritium)</h3></td>
+      <td><h4>{{t}}%</h4></td>
+     </tr>
+  </table>
+
+  <table align = "center" id = "mustsee">
+   <tr>
+    <td><p>Air Pollution Level</p></td>
+    <td><p id = "level"></p></td>
+   </tr>
+   <tr>
+    <td><p>Health Implications</p></td>
+    <td><p id = "health"></p></td>
+   </tr>
+   <tr>
+    <td><p>Cautionary Statement</p></td>
+    <td><p id = "caution"></p></td>
+   </tr>
+  </table>
+  <form method="post" action="/">
+    <input id = "go" type="submit" value="Go back">
+  </form>
+  </body>
+</html>

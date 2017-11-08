@@ -1,0 +1,73 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Database Page</title>
+    <style>
+    body {
+      background-image: url('http://www.deteched.com/wp-content/uploads/2017/04/VMHZj3.jpg');
+      background-size: 1366px 768px;
+      background-repeat: repeat;
+      background-attachment: fixed;
+      margin:50px 0px; padding:0px;
+      text-align:center;
+      align:center;
+    }
+    input#subs {
+      width:180px;
+      height:80px;
+      top:200px;
+      left:620px;
+      background-color:#0C9;
+      color:#FFF;
+      border-radius:50px;
+      text-align:center;
+      font-style: verdana;
+      font-size: 20px;
+      /*box-shadow: 0px 0px 0px #999;*/
+    }
+    input#subn {
+      width:180px;
+      height:80px;
+      bottom:200px;
+      left:10px;
+      background-color:#0C9;
+      color:#FFF;
+      border-radius:50px;
+      text-align:center;
+      font-style: verdana;
+      font-size: 25px;
+      /*box-shadow: 0px 0px 0px #999;*/
+    }
+    input#yes {
+      width:80px;
+      height:80px;
+      top:200px;
+      left:620px;
+      background-color:#0C9;
+      color:#FFF;
+      border-radius:50px;
+      text-align:center;
+      font-style: verdana;
+      font-size: 20px;
+      /*box-shadow: 0px 0px 0px #999;*/
+    }
+     p {
+       font-style: verdana;
+       color: #90EE90;
+     }
+    </style>
+
+  </head>
+  <body>
+    <p>Do you want to save the entry for {{completeAddress}} with all the weather data?</p>
+    <form method="post" action="/name">
+      <input id = "yes" type="submit" value="Yes">
+    </form>
+    <form method="post" action="/">
+      <input id = "subn" type="submit" value="Go to start">
+    </form>
+    <form method="post" action="/nameForPrint">
+      <input id = "subs" type="submit" value="Search database">
+    </form>
+  </body>
+</html>

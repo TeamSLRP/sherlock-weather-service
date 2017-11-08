@@ -1,0 +1,87 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+
+
+    <style>
+     #para {
+       font-size: 80px;
+       font-style: verdana;
+       color: white;
+     }
+     input#sub {
+       width:80px;
+       height:80px;
+       top:200px;
+       left:620px;
+       background-color:#0C9;
+       color:#FFF;
+       border-radius:50px;
+       text-align: center;
+       font-style: verdana;
+       font-size: 20px;
+       /*box-shadow: 0px 0px 0px #999;*/
+     }
+     input#subs {
+       width:450px;
+       height:50px;
+       top:200px;
+       left:620px;
+       background-color: #3CB371;
+       color:#FFF;
+       border-radius:50px;
+       text-align: relative;
+       font-style: verdana;
+       font-size: 20px;
+       /*box-shadow: 0px 0px 0px #999;*/
+     }
+     input#address {
+       color: 	#006400;
+     }
+     input#place {
+       color: 	#006400;
+     }
+     input#origin {
+       color: 	#006400;
+     }
+     input#destination {
+       color: 	#006400;
+     }
+     body {
+       background-image: url('http://www.deteched.com/wp-content/uploads/2017/04/VMHZj3.jpg');
+       background-size: 1366px 768px;
+       background-repeat: no-repeat;
+       background-attachment: fixed;
+       margin:50px 0px; padding:0px;
+       text-align:center;
+       /*align:center;*/
+       font-style: verdana;
+     }
+     #pos{
+       align: left;
+     }
+    </style>
+
+  </head>
+  <body>
+
+     <p id = "para"><b><i>SHERLOCK WEATHER SERVICE</i></b></p>
+     <form method="post" action="/mainPage" name="info" style = "float: center">
+       <input type="text" id="address" name="address" placeholder="Enter your address" size = "30"></br>
+      </br> </br> <input id = "sub" type="submit" value="Submit">
+    </form>
+
+
+    <!-- <form method="post" action="/airQuality" name="info" style = "float: center">
+      <h1 id = "rig">SHERLOCK AIR QUALITY CHECKER</h1>
+      <input type="text" id="place" name="place" placeholder="Enter your address" size = "30"></br>
+     </br> </br> <input id = "sub" type="submit" value="Submit">
+   </form> -->
+
+   <form method="post" action="/nameForPrint">
+   </br><input id = "subs" type="submit" value="Search database">
+   </form>
+
+  </body>
+</html>

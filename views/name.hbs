@@ -1,0 +1,44 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Name</title>
+    <style>
+    body {
+      background-image: url('http://www.deteched.com/wp-content/uploads/2017/04/VMHZj3.jpg');
+      background-size: 1366px 768px;
+      background-repeat: repeat;
+      margin:50px 0px; padding:0px;
+      text-align:center;
+    }
+    input#save {
+    width:150px;
+    height:60px;
+    top:200px;
+    left:620px;
+    background-color:#0C9;
+    color:#FFF;
+    border-radius:50px;
+    text-align:center;
+    font-style: verdana;
+    font-size: 20px;
+    /*box-shadow: 0px 0px 0px #999;*/
+  }
+  p {
+    color: #90EE90;
+    font-style: verdana;
+  }
+    </style>
+  </head>
+  <body>
+
+
+
+    <form method="post" action="/insertDatabase">
+    <p>Enter your unique identifier : <input type="text" id="name" name="name"></p>
+
+    <p>Enter description : (optional) <input type="text" id="desc" name="desc"> </p>
+
+    <input id = "save" type="submit" value="Save data">
+  </form>
+  </body>
+</html>
