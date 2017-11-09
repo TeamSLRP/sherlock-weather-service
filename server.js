@@ -190,6 +190,15 @@ app.post('/insertDatabase',(req,res) => {
     req.session.obj.name = name;
     req.session.obj.description = description;
 
+    weatherData.findOne({name : req.body.name},(err,obj) => {
+      if(obj){
+        res.render('name.hbs',{
+          message: `${req.body.name} already taken, try a new one`
+        });
+      }
+    });
+
+
   dbEntry = new weatherData(req.session.obj);
   dbEntry.save().then((doc)=>{
     res.render('final.hbs',{
@@ -252,6 +261,10 @@ app.post('/searchDatabase',(req,res) => {
 // });
 
 app.get('/about',(req,res)=>{
+  res.render('about.hbs');
+});
+
+app.post('/about',(req,res)=>{
   res.render('about.hbs');
 });
 
