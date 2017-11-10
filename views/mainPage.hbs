@@ -4,80 +4,7 @@
     <title>Main Page</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-    <script>
 
-    visibilityFunction = (visi) =>{
-        if(!visi){
-          document.getElementById("imp").innerHTML = "Visibility is not provided";
-        }
-    };
-
-    </script>
-    <script>
-    function quality(){
-      if ({{aqi}} <= 50){
-       document.getElementById("level").innerHTML = "Good";
-       document.getElementById("health").innerHTML = "Air quality is considered satisfactory, and air pollution poses little or no risk";
-       document.getElementById("caution").innerHTML = "None";
-       document.getElementById("mustsee").style.backgroundColor = "Forestgreen";
-       document.getElementById("mustsee").style.color = "white";
-     }else if({{aqi}} >= 51 && {{aqi}} <= 100){
-       document.getElementById("level").innerHTML = "Moderate";
-       document.getElementById("health").innerHTML = "Air quality is acceptable; however, for some pollutants there may be a moderate health concern for a very small number of people who are unusually sensitive to air pollution.";
-       document.getElementById("caution").innerHTML = "Active children and adults, and people with respiratory disease, such as asthma, should limit prolonged outdoor exertion.";
-       document.getElementById("mustsee").style.backgroundColor = "Gold";
-       document.getElementById("mustsee").style.color = "black";
-     }else if( {{aqi}} >= 101 && {{aqi}} <= 150){
-       document.getElementById("level").innerHTML = "Unhealthy for Sensitive Groups";
-       document.getElementById("health").innerHTML = "Members of sensitive groups may experience health effects. The general public is not likely to be affected.";
-       document.getElementById("caution").innerHTML = "Active children and adults, and people with respiratory disease, such as asthma, should limit prolonged outdoor exertion.";
-       document.getElementById("mustsee").style.backgroundColor = "GoldenRod";
-       document.getElementById("mustsee").style.color = "black";
-     }else if( {{aqi}} >= 151 && {{aqi}} <= 200){
-       document.getElementById("level").innerHTML = "Unhealthy";
-       document.getElementById("health").innerHTML = "Everyone may begin to experience health effects; members of sensitive groups may experience more serious health effects";
-       document.getElementById("caution").innerHTML = "Active children and adults, and people with respiratory disease, such as asthma, should avoid prolonged outdoor exertion; everyone else, especially children, should limit prolonged outdoor exertion.";
-       document.getElementById("mustsee").style.backgroundColor = "Crimson";
-       document.getElementById("mustsee").style.color = "white";
-     }else if( {{aqi}} >= 201 && {{aqi}} <= 300){
-       document.getElementById("level").innerHTML = "Very Unhealthy";
-       document.getElementById("health").innerHTML = "Health warnings of emergency conditions. The entire population is more likely to be affected.";
-       document.getElementById("caution").innerHTML = "Active children and adults, and people with respiratory disease, such as asthma, should avoid all outdoor exertion; everyone else, especially children, should limit outdoor exertion.";
-       document.getElementById("mustsee").style.backgroundColor = "DarkViolet";
-       document.getElementById("mustsee").style.color = "white";
-     }else if( {{aqi}} > 300){
-       document.getElementById("level").innerHTML = "Hazardous";
-       document.getElementById("health").innerHTML = "Health alert: everyone may experience more serious health effects";
-       document.getElementById("caution").innerHTML = "Everyone should avoid all outdoor exertion";
-       document.getElementById("mustsee").style.backgroundColor = "Maroon";
-       document.getElementById("mustsee").style.text = "white";
-     }
-
-     if(document.getElementById("CO").innerHTML == "%"){
-       document.getElementById("CO").innerHTML = "not provided";
-     }
-     if(document.getElementById("O3").innerHTML == "%"){
-       document.getElementById("O3").innerHTML = "not provided";
-     }
-     if(document.getElementById("SO2").innerHTML == "%"){
-       document.getElementById("SO2").innerHTML = "not provided";
-     }
-     if(document.getElementById("NO2").innerHTML == "%"){
-       document.getElementById("NO2").innerHTML = "not provided";
-     }
-     if(document.getElementById("P").innerHTML == "%"){
-       document.getElementById("P").innerHTML = "not provided";
-     }
-     if(document.getElementById("T").innerHTML == "%"){
-       document.getElementById("T").innerHTML = "not provided";
-     }
-     if(document.getElementById("att").innerHTML == ""){
-       document.getElementById("att").innerHTML = "not provided";
-     }
-
-
-   }
-    </script>
 
     <style>
      body {
@@ -144,6 +71,90 @@
      }
 
     </style>
+    <script>
+
+    visibilityFunction = (visi) =>{
+        if(!visi){
+          document.getElementById("imp").innerHTML = "Visibility is not provided";
+        }
+    };
+
+    </script>
+    <script>
+    function quality(){
+      if ({{aqi}} <= 50){
+       document.getElementById("level").innerHTML = "Good";
+       document.getElementById("health").innerHTML = "Air quality is considered satisfactory, and air pollution poses little or no risk";
+       document.getElementById("caution").innerHTML = "None";
+       document.getElementById("mustsee").style.backgroundColor = "Forestgreen";
+       document.getElementById("mustsee").style.color = "white";
+     }else if({{aqi}} >= 51 && {{aqi}} <= 100){
+       document.getElementById("level").innerHTML = "Moderate";
+       document.getElementById("health").innerHTML = "Air quality is acceptable; however, for some pollutants there may be a moderate health concern for a very small number of people who are unusually sensitive to air pollution.";
+       document.getElementById("caution").innerHTML = "Active children and adults, and people with respiratory disease, such as asthma, should limit prolonged outdoor exertion.";
+       document.getElementById("mustsee").style.backgroundColor = "Gold";
+       document.getElementById("level").style.color = "#ff1919";
+       document.getElementById("health").style.color = "#ff1919";
+       document.getElementById("caution").style.color = "#ff1919";
+       document.getElementById("label1").style.color = "#ff1919";
+       document.getElementById("label2").style.color = "#ff1919";
+       document.getElementById("label3").style.color = "#ff1919";
+     }else if( {{aqi}} >= 101 && {{aqi}} <= 150){
+       document.getElementById("level").innerHTML = "Unhealthy for Sensitive Groups";
+       document.getElementById("health").innerHTML = "Members of sensitive groups may experience health effects. The general public is not likely to be affected.";
+       document.getElementById("caution").innerHTML = "Active children and adults, and people with respiratory disease, such as asthma, should limit prolonged outdoor exertion.";
+       document.getElementById("mustsee").style.backgroundColor = "GoldenRod";
+       document.getElementById("level").style.color = "#ff1919";
+       document.getElementById("health").style.color = "#ff1919";
+       document.getElementById("caution").style.color = "#ff1919";
+       document.getElementById("label1").style.color = "#ff1919";
+       document.getElementById("label2").style.color = "#ff1919";
+       document.getElementById("label3").style.color = "#ff1919";
+     }else if( {{aqi}} >= 151 && {{aqi}} <= 200){
+       document.getElementById("level").innerHTML = "Unhealthy";
+       document.getElementById("health").innerHTML = "Everyone may begin to experience health effects; members of sensitive groups may experience more serious health effects";
+       document.getElementById("caution").innerHTML = "Active children and adults, and people with respiratory disease, such as asthma, should avoid prolonged outdoor exertion; everyone else, especially children, should limit prolonged outdoor exertion.";
+       document.getElementById("mustsee").style.backgroundColor = "Crimson";
+       document.getElementById("mustsee").style.color = "white";
+     }else if( {{aqi}} >= 201 && {{aqi}} <= 300){
+       document.getElementById("level").innerHTML = "Very Unhealthy";
+       document.getElementById("health").innerHTML = "Health warnings of emergency conditions. The entire population is more likely to be affected.";
+       document.getElementById("caution").innerHTML = "Active children and adults, and people with respiratory disease, such as asthma, should avoid all outdoor exertion; everyone else, especially children, should limit outdoor exertion.";
+       document.getElementById("mustsee").style.backgroundColor = "DarkViolet";
+       document.getElementById("mustsee").style.color = "white";
+     }else if( {{aqi}} > 300){
+       document.getElementById("level").innerHTML = "Hazardous";
+       document.getElementById("health").innerHTML = "Health alert: everyone may experience more serious health effects";
+       document.getElementById("caution").innerHTML = "Everyone should avoid all outdoor exertion";
+       document.getElementById("mustsee").style.backgroundColor = "Maroon";
+       document.getElementById("mustsee").style.text = "white";
+     }
+
+     if(document.getElementById("CO").innerHTML == "%"){
+       document.getElementById("CO").innerHTML = "not provided";
+     }
+     if(document.getElementById("O3").innerHTML == "%"){
+       document.getElementById("O3").innerHTML = "not provided";
+     }
+     if(document.getElementById("SO2").innerHTML == "%"){
+       document.getElementById("SO2").innerHTML = "not provided";
+     }
+     if(document.getElementById("NO2").innerHTML == "%"){
+       document.getElementById("NO2").innerHTML = "not provided";
+     }
+     if(document.getElementById("P").innerHTML == "%"){
+       document.getElementById("P").innerHTML = "not provided";
+     }
+     if(document.getElementById("T").innerHTML == "%"){
+       document.getElementById("T").innerHTML = "not provided";
+     }
+     if(document.getElementById("att").innerHTML == ""){
+       document.getElementById("att").innerHTML = "not provided";
+     }
+
+
+   }
+    </script>
 
     <style>
     body {
@@ -257,7 +268,7 @@
       <td><h3>Humidity </h3></td> <td><h3>{{humidity}}</h3></td>
     </tr>
     <tr>
-      <td><h3>Pressure </h3></td><td><h3> {{pressure}} atm</h3></td>
+      <td><h3>Pressure </h3></td><td><h3> {{pressure}} hp</h3></td>
     </tr>
 
     <tr>
@@ -321,15 +332,15 @@
 
    <table align = "center" id = "mustsee">
     <tr>
-     <td><p>Air Pollution Level</p></td>
+     <td><p id="label1">Air Pollution Level</p></td>
      <td><p id = "level"></p></td>
     </tr>
     <tr>
-     <td><p>Health Implications</p></td>
+     <td><p id="label2">Health Implications</p></td>
      <td><p id = "health"></p></td>
     </tr>
     <tr>
-     <td><p>Cautionary Statement</p></td>
+     <td><p id="label3">Cautionary Statement</p></td>
      <td><p id = "caution"></p></td>
     </tr>
    </table>

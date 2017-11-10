@@ -36,6 +36,7 @@ var dbEntry;
 var address;
 var name;
 var date;
+var d;
 var description;
 var latitude;
 var longitude;
@@ -85,7 +86,8 @@ app.post('/mainPage',(req,res) => {
       req.session.address = results.address;
 
       address = results.address;
-      date = new Date();
+      d = new Date();
+      date = (d.toDateString()).concat(", Time : ",d.getHours(),":",d.getMinutes(),":",d.getSeconds(),":",d.getMilliseconds()," IST");
       latitude = results.latitude;
       longitude = results.longitude;
       temperature = results.temperature;

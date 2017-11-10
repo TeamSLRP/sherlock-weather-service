@@ -34,8 +34,12 @@
       font-style: verdana;
     }
 
+    #heading{
+      color: #00FFAA;
+    }
+
     h2 {
-      color: purple;
+      color: #FFFFFF;
       font-style: verdana;
     }
     input#rel {
@@ -66,13 +70,25 @@
        document.getElementById("health").innerHTML = "Air quality is acceptable; however, for some pollutants there may be a moderate health concern for a very small number of people who are unusually sensitive to air pollution.";
        document.getElementById("caution").innerHTML = "Active children and adults, and people with respiratory disease, such as asthma, should limit prolonged outdoor exertion.";
        document.getElementById("mustsee").style.backgroundColor = "Gold";
-       document.getElementById("mustsee").style.color = "black";
+       document.getElementById("mustsee").style.color = "#ff1919";
+       document.getElementById("level").style.color = "#ff1919";
+       document.getElementById("health").style.color = "#ff1919";
+       document.getElementById("caution").style.color = "#ff1919";
+       document.getElementById("label1").style.color = "#ff1919";
+       document.getElementById("label2").style.color = "#ff1919";
+       document.getElementById("label3").style.color = "#ff1919";
      }else if( {{aqi}} >= 101 && {{aqi}} <= 150){
        document.getElementById("level").innerHTML = "Unhealthy for Sensitive Groups";
        document.getElementById("health").innerHTML = "Members of sensitive groups may experience health effects. The general public is not likely to be affected.";
        document.getElementById("caution").innerHTML = "Active children and adults, and people with respiratory disease, such as asthma, should limit prolonged outdoor exertion.";
        document.getElementById("mustsee").style.backgroundColor = "GoldenRod";
-       document.getElementById("mustsee").style.color = "black";
+       document.getElementById("mustsee").style.color = "#ff1919";
+       document.getElementById("level").style.color = "#ff1919";
+       document.getElementById("health").style.color = "#ff1919";
+       document.getElementById("caution").style.color = "#ff1919";
+       document.getElementById("label1").style.color = "#ff1919";
+       document.getElementById("label2").style.color = "#ff1919";
+       document.getElementById("label3").style.color = "#ff1919";
      }else if( {{aqi}} >= 151 && {{aqi}} <= 200){
        document.getElementById("level").innerHTML = "Unhealthy";
        document.getElementById("health").innerHTML = "Everyone may begin to experience health effects; members of sensitive groups may experience more serious health effects";
@@ -116,11 +132,11 @@
   </head>
   <body onload="visibilityFunction({{visibility}}); quality();">
     <img src={{imageUrl}}>
-    <h3>Following details were found under name : {{name}}</h3>
+    <h3 id="heading">Following details were found under name : {{name}}</h3>
     <h2>{{completeAddress}}</h2>
-    <h3>Description :</h3>
+    <h3 id="heading">Description :</h3>
     <h2>{{description}}</h2>
-    <h3>Date and Time of entry :</h3>
+    <h3 id="heading">Date and Time of entry :</h3>
     <h2>{{date}}</h2>
     <!-- <h2>Following details are latest as of {{date}}</h2> -->
 
@@ -162,7 +178,7 @@
       <td><h3>Humidity </h3></td> <td><h3>{{humidity}}</h3></td>
     </tr>
     <tr>
-      <td><h3>Pressure </h3></td><td><h3> {{pressure}} atm</h3></td>
+      <td><h3>Pressure </h3></td><td><h3> {{pressure}} hp</h3></td>
     </tr>
     <tr>
      <td><h3>Attribution name</h3></td>
@@ -225,15 +241,15 @@
 
    <table align = "center" id = "mustsee">
     <tr>
-     <td><p>Air Pollution Level</p></td>
+     <td><p id="label1">Air Pollution Level</p></td>
      <td><p id = "level"></p></td>
     </tr>
     <tr>
-     <td><p>Health Implications</p></td>
+     <td><p id="label2">Health Implications</p></td>
      <td><p id = "health"></p></td>
     </tr>
     <tr>
-     <td><p>Cautionary Statement</p></td>
+     <td><p id="label3">Cautionary Statement</p></td>
      <td><p id = "caution"></p></td>
     </tr>
    </table>
